@@ -11,3 +11,10 @@
   FROM `courses`
   WHERE `cfu` > "10"
 }
+
+3. Selezionare tutti gli studenti che hanno più di 30 anni
+{
+  SELECT `name`,`surname`, DATE(`date_of_birth`) AS `date_of_birth`
+  FROM `students`
+  WHERE DATE(`date_of_birth`) > "1995-09-15";
+}
