@@ -14,9 +14,9 @@
 
 3. Selezionare tutti gli studenti che hanno più di 30 anni
 {
-  SELECT `name`,`surname`, DATE(`date_of_birth`) AS `date_of_birth`
+  SELECT `name`,`surname`, `date_of_birth`
   FROM `students`
-  WHERE DATE(`date_of_birth`) > "1995-09-15";
+  WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURRENT_DATE) > 30;
 }
 
 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
@@ -83,7 +83,7 @@ GROUP BY
 
 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
 {
-  SELECT COUNT(*) AS `degrees_count`
-  FROM `degrees`
-  GROUP BY `department_id`;
+  SELECT COUNT(*)AS degrees_count, department_id
+  FROM degrees
+  GROUP BY department_id;
 }
